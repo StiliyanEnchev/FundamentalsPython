@@ -4,8 +4,8 @@ price_for_1pack_of_eggs = price_per_1kg_flour * 0.75
 price_for_1l_milk = price_per_1kg_flour * 1.25
 number_of_loaves = 0
 colored_eggs = 0
-while total_budget >= 0:
-    if price_for_1l_milk + price_for_1pack_of_eggs + price_for_1l_milk < total_budget:
+while total_budget > 0:
+    if price_for_1l_milk + price_for_1pack_of_eggs + price_per_1kg_flour <= total_budget:
         total_budget -= price_for_1l_milk + price_for_1pack_of_eggs + price_per_1kg_flour
         number_of_loaves += 1
         colored_eggs += 3
