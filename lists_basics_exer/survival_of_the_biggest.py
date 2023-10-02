@@ -10,4 +10,5 @@ for num in range(remove_count):
     min_num = min(new_integer_list)
     new_integer_list.remove(min_num)
 
-print(new_integer_list)
+formatted_list = ', '.join(map(str, new_integer_list))
+print(formatted_list)
