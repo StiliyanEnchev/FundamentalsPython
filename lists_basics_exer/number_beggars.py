@@ -4,6 +4,7 @@ money_as_integers = []
 
 for current_money in money_as_strings:
     money_as_integers.append(int(current_money))
+
 list_of_money_for_begger = []
 start_index = 0
 
