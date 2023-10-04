@@ -10,7 +10,7 @@ while command != "No Money":
                 bought_gifts[gift] = None
     elif new_command == "Required":
         index = int(command_and_gift[2])
-        if index < (len(bought_gifts)):
+        if 0 <= index < (len(bought_gifts)):
             bought_gifts[index] = gift_name
     elif new_command == "JustInCase":
         bought_gifts[-1] = gift_name
