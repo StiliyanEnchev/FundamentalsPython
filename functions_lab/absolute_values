@@ -1,1 +1,5 @@
-
+number_list = input().split()
+abs_sequence = []
+for number in number_list:
+  abs_sequence.append(abs(float(number)))
+print(abs_sequence)
