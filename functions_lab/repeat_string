@@ -1,0 +1,5 @@
+string = input()
+counter_n = int(input())
+repeated = lambda string, counter_n: string * counter_n
+result = repeated(string, counter_n)
+print(result)
