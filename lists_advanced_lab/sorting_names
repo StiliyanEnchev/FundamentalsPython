@@ -1,0 +1,7 @@
+def sorted_names():
+  sorted_list = list(input().split(', '))
+  
+  return sorted(sorted_list, key=lambda name: (-len(name), name))
+
+result = sorted_names()
+print(result)
