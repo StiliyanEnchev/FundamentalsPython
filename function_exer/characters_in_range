@@ -1,0 +1,11 @@
+def all_the_chars(first_char, second_char):
+  characters = []
+  for current_character in range(ord(first_char)+1, ord(second_char)):
+    characters.append(chr(current_character))
+  return characters
+
+first_char = input()
+second_char = input()
+
+final_result = all_the_chars(first_char, second_char)
+print(' '.join(final_result))
