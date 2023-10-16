@@ -1,0 +1,6 @@
+width = int(input())
+height = int(input())
+
+area_of_rectangle = lambda width, heihgt: width * height
+result = area_of_rectangle(width, height)
+print(result)
