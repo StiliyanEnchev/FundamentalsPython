@@ -1,0 +1,4 @@
+received_words = input().split()
+list_of_even_words = [word for word in received_words if len(word) % 2 == 0]
+for word in list_of_even_words:
+  print(word)
