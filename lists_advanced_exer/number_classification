@@ -1,6 +1,6 @@
 numbers = input().split(', ')
 def positive_numbers(numbers):
-  return ', '.join([number for number in numbers if int(number) > 0])
+  return ', '.join([number for number in numbers if int(number) >= 0])
 def negative_numbers(numbers):
   return ', '.join([number for number in numbers if int(number) < 0])
 def even_numbers(numbers):
