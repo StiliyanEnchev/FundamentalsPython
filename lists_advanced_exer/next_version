@@ -1,0 +1,4 @@
+string_of_version = input()
+number = string_of_version.replace('.','')
+new_ver = int(number) + 1
+print('.'.join(str(new_ver)))
