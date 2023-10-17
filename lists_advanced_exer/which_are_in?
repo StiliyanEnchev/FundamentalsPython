@@ -1,0 +1,11 @@
+first_string = input().split(', ')
+second_string = input().split(', ')
+list_of_strings = []
+
+for input in first_string:
+  for string in second_string:
+    if input in string:
+      list_of_strings.append(input)
+      break
+
+print(list_of_strings)
