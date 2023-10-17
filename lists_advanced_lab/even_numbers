@@ -1,6 +1,4 @@
-string_with_nums = list(map(int, input().split(', ')))
-list_of_indexes = []
-for num in string_with_nums:
-  if num % 2 == 0 and num != 0:
-    list_of_indexes.append(string_with_nums.index(num))
-print(list_of_indexes)
+number_list = list(map(int, input().split(', ')))
+found_indices_or_no = map(lambda num: num if number_list[num] % 2 == 0 else 'no', range(len(number_list)))
+even_indices = list(filter(lambda x: x != 'no', found_indices_or_no))
+print(even_indices)
