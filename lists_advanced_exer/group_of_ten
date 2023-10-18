@@ -4,7 +4,17 @@ while len(received_str_of_numbers) != 0:
   list_of_numbers = []
   for number in received_str_of_numbers[::-1]:
     if int(number) <= boundry:
-      list_of_numbers.append(number)
+      list_of_numbers.append(int(number))
       received_str_of_numbers.remove(number)
   print(f"Group of {boundry}'s: {list_of_numbers[::-1]}")
   boundry += 10
+
+#or
+
+numbers = [int(num) for num in input().split(', ')]
+group = 10
+while numbers:
+  list_of_numbers = [number for number in numbers if number <= group]
+  print(f"Group of {group}'s: {list_of_numbers}")
+  group += 10
+  numbers = [number for number in numbers if number not in list_of_numbers]
