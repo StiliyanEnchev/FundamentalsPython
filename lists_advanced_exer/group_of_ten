@@ -1,0 +1,10 @@
+received_str_of_numbers = input().split(', ')
+boundry = 10
+while len(received_str_of_numbers) != 0:
+  list_of_numbers = []
+  for number in received_str_of_numbers[::-1]:
+    if int(number) <= boundry:
+      list_of_numbers.append(number)
+      received_str_of_numbers.remove(number)
+  print(f"Group of {boundry}'s: {list_of_numbers[::-1]}")
+  boundry += 10
