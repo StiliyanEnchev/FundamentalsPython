@@ -1,0 +1,28 @@
+sequence_of_numbers = input().split()
+command = input()
+move_counter = 0 
+
+def command_invalid(index1, index2):
+  if index1 == index2 or index1 < 0 or index2 > len(sequence_of_numbers) or index2 < 0 or index1 > len(sequence_of_numbers):
+    return True
+  else:
+    return False
+def command_matches(index1, index2):
+  sequence_of_numbers[index1] == sequence_of_numbers[index2]
+  return True
+while command != 'end':
+  move_counter += 1
+  indexes = command.split()
+  index1, index2 = int(indexes[0]), int(indexes[1])
+  if command_invalid(index1, index2):
+    middle_index = len(sequence_of_numbers) // 2
+    sequence_of_numbers.insert(middle_index, str(index1))
+    sequence_of_numbers.insert(middle_index, str(index1))
+    print("Invalid input! Adding additional elements to the board")
+  elif command_matches(index1, index2):
+    print(f"Congrats! You have found matching elements - ${sequence_of_numbers[index1]}!")
+    second_element = sequence_of_numbers[index2]
+    sequence_of_numbers.pop(index1)
+    sequence_of_numbers.remove(second_element)
+    print(sequence_of_numbers)
+  command = input()
