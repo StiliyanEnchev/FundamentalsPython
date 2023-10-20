@@ -1,0 +1,13 @@
+sequence_of_integers = list(map(int, input().split()))
+list_of_top_5 = []
+averages = sum(sequence_of_integers) / len(sequence_of_integers)
+for number in sequence_of_integers[::-1]:
+  if number > averages:
+    list_of_top_5.append(number)
+new_list = sorted(list_of_top_5, reverse=True)
+list = map(str, new_list[0:5])
+
+if len(list_of_top_5) == 0: 
+  print('No')
+else:
+  print(' '.join(list)) 
