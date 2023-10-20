@@ -13,5 +13,5 @@ for student in range(1, number_of_students + 1):
     max_bonus_poinds = total_bonus
     max_student_attendance = student_attendance
 
-print(f'Max Bonus: {math.ceil(max_bonus_poinds)}')
-print(f'The student has attended {math.ceil(max_student_attendance)} lectures')
+print(f'Max Bonus: {math.ceil(max_bonus_poinds)}.')
+print(f'The student has attended {math.ceil(max_student_attendance)} lectures.')
