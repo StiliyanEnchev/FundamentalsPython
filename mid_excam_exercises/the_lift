@@ -1,0 +1,18 @@
+waiting_people = int(input())
+wagons = input().split()
+wagons_with_people = []
+for wagon in wagons:
+  
+  if len(wagons_with_people) == len(wagons) or waiting_people == 0:
+    break
+  if wagon == 4: 
+    continue
+  elif waiting_people < 4:
+    wagon = int(wagon)
+    taken_seats = 4 - wagon
+    waiting_people -= taken_seats
+    wagons_with_people.append(taken_seats + wagon)
+
+result = map(str, wagons_with_people)
+print(' '.join(result))
+print(waiting_people)
