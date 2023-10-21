@@ -1,0 +1,41 @@
+treasure_chest = input().split('|')
+command = input().split()
+
+def loot():
+  for item in command:
+    if item not in treasure_chest:
+      treasure_chest.insert(0, item)
+def drop(index):
+  treasure_chest.append(treasure_chest[index])
+  treasure_chest.remove(treasure_chest[index])  
+def steal_items(number_of_stealed_items, treasure_chest):
+    if len(treasure_chest) > number_of_stealed_items:
+      stealed_items = (treasure_chest[-number_of_stealed_items:])
+      for item in stealed_items:
+        treasure_chest.remove(item)
+      print(', '.join(stealed_items))
+    elif number_of_stealed_items > len(treasure_chest):
+      print(', '.join(treasure_chest))
+      treasure_chest[:] = []
+while True: 
+  if command[0] == "Yohoho!":
+    break
+  elif command[0] == 'Loot':
+    command.remove(command[0])
+    loot()
+  elif command[0] == 'Drop':
+    index = int(command[1])
+    drop(index)    
+  elif command[0] == 'Steal':
+    number_of_stealed_items = int(command[1])
+    steal_items(number_of_stealed_items, treasure_chest)
+  command = input().split()
+
+if len(treasure_chest) == 0:
+  print("Failed treasure hunt.")
+else:
+  total = 0
+  for item in treasure_chest:
+    total += int(len(item))
+  average_gain = total / len(treasure_chest)
+  print(f"Average treasure gain: {average_gain:.2f} pirate credits.")
