@@ -1,0 +1,29 @@
+received_details = input().split('>>')
+total_collected_tax = 0  
+
+def calculate_taxes():
+  if type_of_vehicle == 'family':
+    total_tax = 50 - (5 * years_of_taxes) + ((total_km // 3000) * 12)
+    return(total_tax)
+  elif type_of_vehicle == 'heavyDuty':
+    total_tax = 80 - (8 * years_of_taxes) + ((total_km // 9000) * 14)
+    return(total_tax)
+  elif type_of_vehicle == 'sports':
+    total_tax = 100 - (9 * years_of_taxes) + ((total_km // 2000) * 18)
+    return(total_tax)
+  else:
+    return False
+
+for vehicle in received_details:
+  current_vehicle = vehicle.split()
+  type_of_vehicle = current_vehicle[0]
+  years_of_taxes = int(current_vehicle[1])
+  total_km = int(current_vehicle[2])
+  if calculate_taxes():
+    total_tax = calculate_taxes()
+    total_collected_tax += total_tax
+    print(f"A {type_of_vehicle} car will pay {total_tax:.2f} euros in taxes.")
+  else:
+    print('Invalid car type.')
+
+print(f"The National Revenue Agency will collect {total_collected_tax:.2f} euros in taxes.")
