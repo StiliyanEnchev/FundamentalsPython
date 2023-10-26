@@ -1,0 +1,38 @@
+shelf_with_books = input().split('&')
+command = input().split(' | ')
+
+def swap_books():
+  book1 = command[1]
+  book2 = command[2]
+  if book1 in shelf_with_books and book2 in shelf_with_books:
+    book1_index = shelf_with_books.index(book1)
+    book2_index = shelf_with_books.index(book2)
+    shelf_with_books[book2_index], shelf_with_books[book1_index] = shelf_with_books[book1_index], shelf_with_books[book2_index]
+def add_book():
+  current_book = command[1]
+  if current_book not in shelf_with_books:
+    shelf_with_books.insert(0, current_book)
+def take_book():
+  current_book = command[1]
+  if current_book in shelf_with_books:
+    shelf_with_books.remove(current_book)
+    
+while command[0] != 'Done':
+  if command[0] == 'Add Book':
+    add_book()
+  elif command[0] == 'Take Book':
+    take_book()
+  elif command[0] == 'Swap Books':
+    swap_books()
+  elif command[0] == 'Insert Book':
+    current_book = command[1]
+    if current_book not in shelf_with_books:
+      shelf_with_books.append(current_book)
+  elif command[0] == 'Check Book':
+    index = int(command[1])
+    if 0 <= index <= len(shelf_with_books):
+      print(shelf_with_books[index])
+  command = input().split(' | ')
+  
+result = ', '.join(shelf_with_books)
+print(result)
