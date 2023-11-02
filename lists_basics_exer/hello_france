@@ -1,0 +1,26 @@
+ticket_cost = 150
+collection_of_items = input().split('|')
+budget = float(input())
+money_after_sale = 0
+list_with_new_prices = []
+profit = 0
+for item_and_price in collection_of_items:
+  item_and_price = item_and_price.split('->')
+  name, price = item_and_price[0], float(item_and_price[1])
+  if name == 'Clothes' and price <= 50.00 or name == 'Shoes' and price <= 35.00 or name == 'Accessories' and price <= 20.50:
+    if budget >= price:
+      budget -= price
+      money_after_sale += price + (price * 0.4)
+      profit += price * 0.4
+      list_with_new_prices.append(f'{(price + (price * 0.4)):.2f}')
+      if budget + money_after_sale >= 150:
+        break
+total_budget = budget + money_after_sale
+
+print(' '.join(list_with_new_prices))
+print(f'Profit: {profit:.2f}')
+
+if total_budget >= ticket_cost:
+  print("Hello, France!")
+else:
+  print("Not enough money.")
