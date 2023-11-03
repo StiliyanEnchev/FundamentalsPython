@@ -1,0 +1,20 @@
+students = []
+course_to_search = None
+
+while True:
+  students_info = input()
+
+  if ":" not in students_info:
+    course_to_search = students_info
+    break
+
+  name, ID, course = students_info.split(":")
+  students.append({'name': name, 'ID': ID, 'course': course})
+
+if "_" in course_to_search:
+  without_underscore = course_to_search.split('_')
+  course_to_search = " ".join(without_underscore)
+
+for student in students:
+  if course_to_search in student.values():
+    print(f"{student['name']} - {student['ID']}")
