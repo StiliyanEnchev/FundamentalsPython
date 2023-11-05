@@ -1,11 +1,11 @@
-received = [str(character) for character in input() if character != ' ']
+symbols = [character for character in input() if character != ' ']
 dict = {}
 
-for character in received:
-  if character in dict:
-    dict[character] += 1
-  else: 
-    dict[character] = 1
+for symbol in symbols:
+  if symbol not in dict.keys():
+    dict[symbol] = 0
+  dict[symbol] += 1
+
 
 for key, value in dict.items():
   print(f'{key} -> {value}')
