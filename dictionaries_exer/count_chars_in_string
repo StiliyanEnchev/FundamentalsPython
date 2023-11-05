@@ -1,15 +1,10 @@
-received = input()
+received = [str(character) for character in input() if character != ' ']
 dict = {}
-removed_space = ''
-if ' ' in received:
-  removed_space = received.split()
-  removed_space = ''.join(removed_space)
 
-for index in range(len(removed_space)):
-  character = removed_space[index]
+for character in received:
   if character in dict:
     dict[character] += 1
-  else:
+  else: 
     dict[character] = 1
 
 for key, value in dict.items():
