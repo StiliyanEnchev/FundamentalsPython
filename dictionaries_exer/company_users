@@ -1,0 +1,15 @@
+saved_details = {}
+received_details = input()
+
+while received_details != 'End':
+  company_name, employee_id = received_details.split(' -> ')
+  if company_name not in saved_details:
+    saved_details[company_name] = [employee_id]    
+  elif employee_id not in saved_details[company_name]:
+    saved_details[company_name].append(employee_id)
+  received_details = input()
+
+for company, id_numbers in saved_details.items():
+  print(f"{company}")
+  for number in id_numbers:
+    print(f'-- {number}')
