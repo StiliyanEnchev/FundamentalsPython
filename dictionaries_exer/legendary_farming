@@ -1,1 +1,35 @@
+collected_items = {'shards': 0, 'fragments': 0, 'motes': 0}
+obtained = False
 
+while not obtained:
+  items = input().lower().split()
+  
+  for index in range(0, len(items), 2):
+    current_item = items[1 + index]
+    quantity = int(items[0 + index])
+
+    if current_item not in collected_items:
+      collected_items[current_item] = 0
+    collected_items[current_item] += quantity
+
+    if collected_items[current_item] >= 250:
+      if current_item == 'shards':
+        print('Shadowmourne obtained!')
+        collected_items[current_item] -= 250
+        obtained = True
+        break
+
+      elif current_item == 'fragments':
+        collected_items[current_item] -= 250
+        print('Valanyr obtained!')
+        obtained = True
+        break
+        
+      elif current_item == 'motes':
+        print('Dragonwrath obtained!')
+        collected_items[current_item] -= 250
+        obtained = True
+        break
+
+for material, quantity in collected_items.items():
+  print(f"{material}: {quantity}")
