@@ -1,0 +1,16 @@
+product_details = input()
+collected_details = {}
+
+while product_details != 'buy':
+  name, price, quantity = product_details.split()
+
+  if name not in collected_details:
+    collected_details[name] = [0, 0]
+  collected_details[name][0] = float(price)
+  collected_details[name][1] += int(quantity)
+  
+  product_details = input()
+
+for item in collected_details:
+  total = collected_details[item][0] * collected_details[item][1]
+  print(f'{item} -> {total:.2f}')
