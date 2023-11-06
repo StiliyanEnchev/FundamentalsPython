@@ -1,0 +1,16 @@
+all_courses = {}
+received_details = input()
+
+while received_details != 'end':
+  course_name, student_name = received_details.split(' : ')
+  if course_name not in all_courses:
+    all_courses[course_name] = []
+  all_courses[course_name].append(student_name)
+
+  received_details = input()
+
+for course in all_courses:
+  print(f'{course}: {len(all_courses[course])}')
+  for student in all_courses[course]:
+    print(f'-- {student}')
+  
