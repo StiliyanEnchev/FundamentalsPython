@@ -17,24 +17,17 @@ while command != 'Lumpawaroo':
       stored_users[force_side].append(force_user)
       
   elif '->' in command:
-    force_user, force_side = command.split(' -> ')
-    such_user = False
-    
+    force_user, force_side = command.split(' -> ')    
     for value in stored_users.values():
       if force_user in value:
-        such_user = True
+        value.remove(force_user)
+        break
 
-    if not such_user:
-      if force_side not in stored_users.keys():
-        stored_users[force_side] = []
-      stored_users[force_side].append(force_user)
-      
-    if such_user:
-      for value in stored_users.values():
-        if force_user in value:
-          value.remove(force_user)
-      stored_users[force_side].append(force_user)
+    if force_side not in stored_users.keys():
+      stored_users[force_side] = []
+    stored_users[force_side].append(force_user)
     print(f"{force_user} joins the {force_side} side!")
+    
   command = input()
   
 for side, user in stored_users.items():
