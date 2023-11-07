@@ -2,25 +2,44 @@ command = input()
 stored_users = {}
 
 while command != 'Lumpawaroo':
-  
   if '|' in command:
     force_side, force_user = command.split(' | ')
-    
-    if force_side not in stored_users.keys():
-      user_part_of_force = False
+    user_part_of_force = False
       
-      for value in stored_users.values():
-        if force_user in value:
-          user_part_of_force = True
-          break
+    for value in stored_users.values():
+      if force_user in value:
+        user_part_of_force = True
+        break
 
-        if not user_part_of_force:
-          stored_users[force_side] = []
-        stored_users[force_side].append(force_user)
+    if not user_part_of_force:
+      if force_side not in stored_users.keys():
+        stored_users[force_side] = []
+      stored_users[force_side].append(force_user)
       
   elif '->' in command:
     force_user, force_side = command.split(' -> ')
+    such_user = False
+    
+    for value in stored_users.values():
+      if force_user in value:
+        such_user = True
 
+    if not such_user:
+      if force_side not in stored_users.keys():
+        stored_users[force_side] = []
+      stored_users[force_side].append(force_user)
+      
+    if such_user:
+      for value in stored_users.values():
+        if force_user in value:
+          value.remove(force_user)
+      stored_users[force_side].append(force_user)
+    print(f"{force_user} joins the {force_side} side!")
   command = input()
   
-print(stored_users)
+for side, user in stored_users.items():
+  if len(user) > 0:
+    print(f"Side: {side}, Members: {len(user)}")
+    for num in user:
+      print(f'! {num}')
+
