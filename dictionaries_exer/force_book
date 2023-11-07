@@ -1,0 +1,26 @@
+command = input()
+stored_users = {}
+
+while command != 'Lumpawaroo':
+  
+  if '|' in command:
+    force_side, force_user = command.split(' | ')
+    
+    if force_side not in stored_users.keys():
+      user_part_of_force = False
+      
+      for value in stored_users.values():
+        if force_user in value:
+          user_part_of_force = True
+          break
+
+        if not user_part_of_force:
+          stored_users[force_side] = []
+        stored_users[force_side].append(force_user)
+      
+  elif '->' in command:
+    force_user, force_side = command.split(' -> ')
+
+  command = input()
+  
+print(stored_users)
