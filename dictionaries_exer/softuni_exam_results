@@ -1,0 +1,30 @@
+command = input()
+stored_results = {}
+submissions_count = {}
+while command != "exam finished":
+  student_command = command.split('-')
+  name = student_command[0]
+
+  if len(student_command) == 3:
+    language, points = student_command[1], int(student_command[2])
+    if name not in stored_results.keys():
+      stored_results[name] = 0
+      
+    if stored_results[name] < points:
+      stored_results[name] = points
+
+    if language not in submissions_count.keys():
+      submissions_count[language] = 0
+    submissions_count[language] += 1
+    
+  else:
+    stored_results.pop(name)
+    
+  command = input()
+
+print("Results:")
+for student in stored_results:
+  print(f'{student} | {stored_results[student]}')
+print('Submissions:')
+for submission in submissions_count:
+  print(f'{submission} - {submissions_count[submission]}')
