@@ -1,0 +1,6 @@
+received_strings = input().split()
+result = ''
+for string in received_strings:
+  result += string * len(string)
+
+print(result)
