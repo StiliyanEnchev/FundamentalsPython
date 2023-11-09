@@ -1,0 +1,7 @@
+received_str = input()
+while received_str != 'end':
+  reversed_string = ''
+  for char in reversed(received_str):
+    reversed_string += char
+  print(f'{received_str} = {reversed_string}')
+  received_str = input()
