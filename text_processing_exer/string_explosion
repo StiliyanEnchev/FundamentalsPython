@@ -1,0 +1,17 @@
+some_string = input()
+result = ''
+strenght = 0
+
+for index in range(len(some_string)):
+
+  if strenght > 0 and some_string[index] != '>':
+    strenght -= 1
+
+  elif some_string[index] == '>':
+    result += some_string[index]
+    strenght += int(some_string[index + 1])
+
+  else:
+    result += some_string[index]
+
+print(result)
