@@ -1,0 +1,7 @@
+received_word = input()
+result = ''
+for index in range(len(received_word) - 1):
+  if received_word[index] != received_word[index + 1]:
+    result += received_word[index]
+result += received_word[-1]
+print(result)
