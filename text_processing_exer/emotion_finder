@@ -1,0 +1,4 @@
+received_text = input()
+for index in range(len(received_text)):
+  if received_text[index] == ':':
+    print(f':{received_text[index + 1]}')
