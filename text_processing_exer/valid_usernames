@@ -1,0 +1,30 @@
+def lenght_is_valid(username):
+  if 3 <= len(username) <= 16:
+    return True
+  else:
+    return False
+  
+def characters_are_valid(username):
+  for char in username:
+    if char.isalnum() or char == '-' or char == '_':
+      return True
+    return False
+
+def no_redundand_symbold(username):
+  if ' ' in username:
+    return False
+  return True
+  
+def username_is_valid(username):
+  if lenght_is_valid(username) and characters_are_valid(username) and no_redundand_symbold(username):
+    return True
+  else:
+    return False
+
+
+received_names = input().split(', ')
+for username in received_names:
+  if username_is_valid(username):
+    print(username)
+
+  
