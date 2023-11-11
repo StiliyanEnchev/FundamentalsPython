@@ -1,0 +1,27 @@
+def alpha_num(letter):
+
+  dict = {'a':'1','b':'2','c':'3','d':'4','e':'5','f':'6','g':'7','h':'8','i':'9','j':'10','k':'11','l':'12','m':'13','n':'14','o':'15','p':'16','q':'17','r':'18','s':'19','t':'20','u':'21','v':'22','w':'23','x':'24','y':'25','z':'26'}
+  return(int(dict[letter]))
+
+received_strings = input()
+total_sum = 0
+list_of_strings = ''
+
+if ' ' in received_strings:
+  list_of_strings = received_strings.split()
+
+for string in list_of_strings:
+  number = int(string[1:-1])
+  first_letter, second_letter = string[0], string[-1]
+  result = 0
+  
+  if first_letter.isupper():
+    result += number / (alpha_num(first_letter.lower()))
+  else:
+    result += number * (alpha_num(first_letter.lower()))
+  if second_letter.isupper():
+    result -= (alpha_num(second_letter.lower()))
+  else:
+    result += (alpha_num(second_letter.lower()))
+  total_sum += result
+print(f'{total_sum:.2f}')
