@@ -1,0 +1,21 @@
+import re
+
+command = input()
+bought_stuff = []
+total_cost = 0
+pattern = r'>>([A-Za-z]+)<<(\d+\.?\d*)!(\d+)'
+
+while command != 'Purchase':
+  match = re.search(pattern, command)
+  if match:
+    stuff, price, quantity = match.groups()
+    bought_stuff.append(stuff)
+    total_cost += int(quantity) * float(price)
+  command = input()
+  
+print('Bought furniture:')
+
+for forniture in bought_stuff:
+  print(f'{forniture}')
+  
+print(f'Total money spend: {total_cost:.2f}')
