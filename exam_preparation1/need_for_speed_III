@@ -7,9 +7,9 @@ def drive(car, distance, required_fuel):
     car['fuel'] -= required_fuel
     print(f"{car['name']} driven for {distance} kilometers. {required_fuel} liters of fuel consumed.")
 
-  if car['mileage'] >= 100000:
-    print("Time to sell the {car}!")
-    return True
+    if car['mileage'] >= 100000:
+      print(f"Time to sell the {car['name']}!")
+      return True
   else:
     print('Not enough fuel to make that ride')
     
@@ -31,7 +31,7 @@ def main_function():
 
   for _ in range(n):
     car_info = input().split('|')
-    car = create_car(car_info[0], int(car_info[1]), car_info[2])
+    car = create_car(car_info[0], int(car_info[1]), int(car_info[2]))
     cars.append(car)
 
   while True:
@@ -64,5 +64,4 @@ def main_function():
     print(f"{car['name']} -> Mileage: {car['mileage']} kms, Fuel in the tank: {car['fuel']} lt.")
 
 main_function()
-
 
